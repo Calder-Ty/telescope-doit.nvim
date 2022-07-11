@@ -1,0 +1,40 @@
+==============================================================================
+														 *telescope-doit.nvim*
+
+Doit is an extension for the telescope plugin
+(https://github.com/nvim-telescope/telescope.nvim). It provides a single 
+picker for searching an listing out TODO/FIXME's in your files.
+
+
+Getting started, you can simply map the picker with:
+
+	:nnoreamp <leader><leader>t :lua require("telescope-doit").doit()<cr>
+
+
+													    *telescope-doit.setup*
+You can modify what values are searched for by passing a table of search terms
+to the picker. Each key represents a new search term, and the value is a table
+of optional configuration options. For example to search for the terms:
+"TODO:", "BUG:" and "FIXME:", you can add the following:
+
+>
+	require("telescope-doit").doit({searches = {
+		["TODO:"] = { symbol = '✓'}, 
+		["FIXME:"] = {symbol = "⚠"}, 
+		["BUG:"] = {symbol = "X"}
+	}})
+<
+
+											   *telescope-doit.search_options*
+The following are the options that can be applied for each search term:
+
+
+	symbol: ~
+		A symbol that will be used to identify the type of task/note found,
+		defaults to '✓'
+
+
+
+
+
+ vim:tw=78:ts=8:ft=help:norl:
